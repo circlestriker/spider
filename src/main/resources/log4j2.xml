@@ -8,7 +8,7 @@
                      filePattern="ship-%d{yyyy-MM-dd}-%i.log"
                      immediateFlush="false" append="true">
             <PatternLayout>
-                <Pattern>%-d{HH:mm:ss}[%p %c] %m%n</Pattern>
+                <Pattern>%-d{HH:mm:ss}[%p %c] %L - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="3" modulate="true"/>
