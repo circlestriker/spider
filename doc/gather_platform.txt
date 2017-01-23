@@ -1,0 +1,30 @@
+
+先启动ES，再启动spider
+********************************************************************************
+[2017-01-18T11:40:00,517][WARN ][o.e.b.JNANatives         ] unable to install syscall filter:
+java.lang.UnsupportedOperationException: seccomp unavailable: requires kernel 3.5+ with CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in
+	at org.elasticsearch.bootstrap.Seccomp.linuxImpl(Seccomp.java:349) ~[elasticsearch-5.0.0.jar:5.0.0]
+//这个错误貌似不影响使用
+
+没有找到redis相关配置! 
+这个问题不用管，可选项
+
+
+只支持5.0版本es如果要升级需要改代码 文档里有说明 仔细看下文档吧
+
+
+存到数据库需要自己定义pipeline
+
+官网上的elasticsearch下载下来，里面自带的ansj插件
+
+代理在0.3版本已经加入
+
+所有爬虫运行记录将在每两个小时对于已经完成的爬虫进行删除
+
+xpath中tidyText()获取标签下所有文本, text()本级文本, allText()各级所有文本.
+
+urlReg字段指明要抓取的网页必须符合的规则。不填这个就抓取所有网页。
+***************************************todo*****************************************
+bug：无模板的情况，点存储此模板，网站就卡住了.
+点击抓取样例数据只是抓取，没有进行真正的数据采集。红色"提交抓取任务"才是。
+点击红色"提交抓取任务"，遇到一次卡住的情况。
