@@ -37,8 +37,8 @@
   "dynamicFields": [
     {
       "regex": "",
-      "xpath": "//h1/tidyText()",
-      "name": "author",
+      "xpath": "//img[@style='display:block;']/@src",
+      "name": "image",
       "need": false
     }
   ]

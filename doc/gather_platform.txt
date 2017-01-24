@@ -4,7 +4,7 @@
 [2017-01-18T11:40:00,517][WARN ][o.e.b.JNANatives         ] unable to install syscall filter:
 java.lang.UnsupportedOperationException: seccomp unavailable: requires kernel 3.5+ with CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in
 	at org.elasticsearch.bootstrap.Seccomp.linuxImpl(Seccomp.java:349) ~[elasticsearch-5.0.0.jar:5.0.0]
-//这个错误貌似不影响使用
+//这个错误不影响使用
 
 没有找到redis相关配置! 
 这个问题不用管，可选项
