@@ -31,7 +31,7 @@
   "doNLP": true,
   "gatherFirstPage": false,
   "needTitle": false,
-  "needContent": false,
+  "needContent": true,
   "needPublishTime": false,
   "ajaxSite": false,
   "dynamicFields": [
