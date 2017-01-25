@@ -6,18 +6,18 @@
   "timeout": "5000",
   "priority": "0",
   "siteName": "腾讯新闻",
-  "domain": "news.qq.com",
+  "domain": "sports.qq.com",
   "startURL": [
-    "http://news.qq.com"
+    "http://sports.qq.com"
   ],
   "contentReg": "",
-  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/tidyText()",
+  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p/text()",
   "titleReg": "",
   "titleXPath": "",
   "categoryReg": "",
   "categoryXPath": "//a[@accesskey=\"5\"]/text()",
   "defaultCategory": "",
-  "urlReg": "http://news.qq.com/a/\\d{8}/\\d+\\.htm",
+  "urlReg": "http://sports.qq.com/a/\\d{8}/\\d+\\.htm",
   "charset": "",
   "publishTimeXPath": "",
   "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
@@ -37,7 +37,7 @@
   "dynamicFields": [
     {
       "regex": "",
-      "xpath": "//img[@style='display:block;']/@src",
+      "xpath": "//div[@id='Cnt-Main-Article-QQ']/img/@src",
       "name": "image",
       "need": false
     }
