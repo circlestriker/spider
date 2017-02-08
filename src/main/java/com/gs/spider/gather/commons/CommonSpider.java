@@ -213,6 +213,7 @@ public class CommonSpider extends AsyncGather {
                 clone.getElementsByAttributeValueContaining("style", "display:none").remove();
                 content = new Html(clone).smartContent().get();
             }
+            /*
             content = content.replaceAll("<script([\\s\\S]*?)</script>", "");
             content = content.replaceAll("<style([\\s\\S]*?)</style>", "");
             content = content.replace("</p>", "***");
@@ -222,6 +223,7 @@ public class CommonSpider extends AsyncGather {
             content = content.replace("\n", "<br/>");
             content = content.replaceAll("(\\<br/\\>\\s*){2,}", "<br/> ");
             content = content.replaceAll("(&nbsp;\\s*)+", " ");
+            */
             page.putField("content", content);
             if (info.isNeedContent() && StringUtils.isBlank(content)) {//if the content is blank ,skip it!
                 page.setSkip(true);
