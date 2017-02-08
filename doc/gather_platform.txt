@@ -24,7 +24,14 @@ java.lang.UnsupportedOperationException: seccomp unavailable: requires kernel 3.
 xpath中tidyText()获取标签下所有文本, text()本级文本, allText()各级所有文本.
 
 urlReg字段指明要抓取的网页必须符合的规则。不填这个就抓取所有网页。
+
+两个终端访问，其中一个无法进行抓取、删除等操作时，有这个报错:
+  29 08-Feb-2017 10:30:46.816 警告 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web applic     ation [spider] appears to have started a thread named [elasticsearch[_client_][generic][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack t     race of thread:
+2645  java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [io.netty.channel.AbstractChannelHandlerContext$13].
+
 ***************************************todo*****************************************
 bug：无模板的情况，点存储此模板，网站就卡住了.
 点击抓取样例数据只是抓取，没有进行真正的数据采集。红色"提交抓取任务"才是。
 点击红色"提交抓取任务"，遇到一次卡住的情况。
+
+webapp文件夹放到和src并行的位置。
