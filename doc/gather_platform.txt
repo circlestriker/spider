@@ -24,6 +24,8 @@ java.lang.UnsupportedOperationException: seccomp unavailable: requires kernel 3.
 xpath中tidyText()获取标签下所有文本, text()本级文本, allText()各级所有文本.
 
 urlReg字段指明要抓取的网页必须符合的规则。不填这个就抓取所有网页。
+
+动态字段不去除html标签，可以抽取html
 ***************************************todo*****************************************
 bug：无模板的情况，点存储此模板，网站就卡住了.
 点击抓取样例数据只是抓取，没有进行真正的数据采集。红色"提交抓取任务"才是。
