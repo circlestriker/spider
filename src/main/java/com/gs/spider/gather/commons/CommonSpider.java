@@ -271,6 +271,8 @@ public class CommonSpider extends AsyncGather {
             }
             if (StringUtils.isNotBlank(category)) {
                 page.putField("category", category);
+            }else {
+                page.putField("category", info.getDefaultCategory());
             }
 
             //抽取发布时间
