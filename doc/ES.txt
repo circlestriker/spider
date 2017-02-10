@@ -1,0 +1,51 @@
+java port 9300.其他语言接口的端口是9200
+The Java client must be from the same major version of Elasticsearch as the nodes.
+
+index name或者type name可以用来区分频道。
+一个索引由一个名字来 标识（必须全部是小写字母的），并且当我们要对这个索引中的文档进行索引、搜索、更新和删除的时候，都要使用到这个名字。在一个集群中，你能够创建任意多个索引。
+
+文档以JSON格式来表示
+
+实际上，您可以将 Elasticsearch 文档类型简单地视为子索引或表名称。
+
+在索引创建之后，你可以在任何时候动态地改变复制的数量，但是你不能再改变分片的数量。
+
+
+过滤器不会计算相关度的得分，所以它们在计算上更快一些
+过滤器可以被缓存到内存中，这使得在重复的搜索查询上，其要比相应的查询快出许多。
+********************************************************************************
+查询索引基本信息:
+curl -XGET "http://localhost:9200/spiderinfo"
+
+查看节点列表
+curl 'localhost:9200/_cat/nodes?v'
+
+列出所有的索引
+curl 'localhost:9200/_cat/indices?v'
+
+如果我们不想返回完整的源文档，我们可以指定返回的几个字段。
+下面这个例子说明了从搜索中只返回两个字段account_number和balance（当然，这两个字段都是指_source中的字段），以下是具体的搜索：
+curl -XPOST 'localhost:9200/bank/_search?pretty' -d '
+{
+  "query": { "match_all": {} },
+  "_source": ["account_number", "balance"]
+}'
+注意到上面的例子简化了_source字段,它仍将会返回一个叫做_source的字段，但是仅仅包含account_number和balance两个字段。
+
+查询所有category:
+在spiderinfo索引中查询所有的category字段。
+
+查询所有的网站名
+curl -XPOST 'localhost:9200/spiderinfo/_search?pretty' -d '
+{
+  "query": { "match_all": {} },
+  "_source": ["siteName"]
+}'
+
+
+查询索引spiderinfo下类型spiderinfo下所有模板的网站名
+curl -XPOST 'localhost:9200/spiderinfo,spiderinfo/_search?pretty' -d '
+{
+  "query": { "match_all": {} },
+  "_source": ["siteName"]
+}'
