@@ -37,6 +37,17 @@ public class SpiderInfoService {
     }
 
     /**
+     * 列出库中所有爬虫模板里的DefaultCategory
+     *
+     * @param size 页面容量
+     * @param page 页码
+     * @return
+     */
+    public ResultListBundle<SpiderInfo> listAllDefaultCategory(int size, int page) {
+        return bundleBuilder.listBundle(null, () -> spiderInfoDAO.listAllDefaultCategory(size, page));
+    }
+
+    /**
      * 根据domain获取结果
      *
      * @param domain 网站域名

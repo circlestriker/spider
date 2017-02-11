@@ -38,6 +38,19 @@ public class SpiderInfoController {
     }
 
     /**
+     * 列出库中所有爬虫模板的defaultCategory
+     *
+     * @param size 页面容量
+     * @param page 页码
+     * @return 爬虫模板defaultCategory列表
+     */
+    @RequestMapping(value = "listAllDefaultCategory", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public ResultListBundle<SpiderInfo> listAllDefaultCategory(@RequestParam(value = "size", required = false, defaultValue = "10") int size, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+        return spiderInfoService.listAllDefaultCategory(size, page);
+    }
+
+    /**
      * 根据domain获取结果
      *
      * @param domain 网站域名

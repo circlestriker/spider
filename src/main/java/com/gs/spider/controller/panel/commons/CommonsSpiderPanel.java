@@ -181,6 +181,15 @@ public class CommonsSpiderPanel extends BaseController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "listSpiderInfoDefaultCategory", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView listSpiderInfoDefaultCategory(String domain, @RequestParam(defaultValue = "1", required = false) int page) {
+        ModelAndView modelAndView = new ModelAndView("panel/commons/listSpiderInfo");//lwl todo
+        modelAndView.addObject("defaultCategoryList", spiderInfoService.listAllDefaultCategory(10, page).getResultList());
+        modelAndView.addObject("page", page);
+        modelAndView.addObject("domain", domain);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "updateBySpiderInfoID", method = {RequestMethod.GET})
     public ModelAndView updateBySpiderInfoID(@RequestParam(required = false, defaultValue = "") String spiderInfoIdUpdateBy, @RequestParam(required = false, defaultValue = "") String spiderInfoJson) {
         ModelAndView modelAndView = new ModelAndView("panel/commons/updateBySpiderInfoID");
