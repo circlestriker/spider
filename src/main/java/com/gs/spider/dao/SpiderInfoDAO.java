@@ -17,6 +17,7 @@ import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.index.query.Operator;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,6 +111,24 @@ public class SpiderInfoDAO extends IDAO<SpiderInfo> {
                 .setTypes(TYPE_NAME)
                 .setQuery(QueryBuilders.matchAllQuery())
                 .setSize(size).setFrom(size * (page - 1));
+        SearchResponse response = searchRequestBuilder.execute().actionGet();
+        return warpHits2List(response.getHits());
+    }
+
+    /**
+     * 列出库中所有爬虫模板里的defaultCategory
+     *
+     * @param size 页面容量
+     * @param page 页码
+     * @return
+     */
+    public List<SpiderInfo> listAllDefaultCategory(int size, int page) {
+        size = 1000;//todo lwl
+        SearchRequestBuilder searchRequestBuilder = client.prepareSearch(INDEX_NAME)
+                .setTypes(TYPE_NAME).setFetchSource("defaultCategory","")
+                .setQuery(QueryBuilders.matchAllQuery())
+                .setSize(size).setFrom(size * (page - 1));
+
         SearchResponse response = searchRequestBuilder.execute().actionGet();
         return warpHits2List(response.getHits());
     }

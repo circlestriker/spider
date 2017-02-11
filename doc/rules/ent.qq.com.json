@@ -1,0 +1,52 @@
+{
+  "thread": "2",
+  "retry": "2",
+  "sleep": "800",
+  "maxPageGather": "10",
+  "timeout": "5000",
+  "priority": "0",
+  "siteName": "腾讯娱乐",
+  "domain": "ent.qq.com",
+  "startURL": [
+    "http://ent.qq.com"
+  ],
+  "contentReg": "",
+  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p[@style='TEXT-INDENT: 2em']",
+  "titleReg": "",
+  "titleXPath": "",
+  "categoryReg": "",
+  "categoryXPath": "",
+  "defaultCategory": "娱乐",
+  "urlReg": "http://ent.qq.com/a/\\d{8}/\\d+\\.htm",
+  "charset": "",
+  "publishTimeXPath": "",
+  "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
+  "publishTimeFormat": "yyyy-MM-dd hh:mm",
+  "authorReg": "",
+  "authorXPath": "//h1/tidyText()",
+  "lang": "",
+  "country": "",
+  "callbackURL": [],
+  "userAgent": "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30",
+  "doNLP": true,
+  "gatherFirstPage": false,
+  "needTitle": false,
+  "needContent": true,
+  "needPublishTime": false,
+  "ajaxSite": false,
+  "dynamicFields": [
+       {
+            "regex": "",
+            "xpath": "//div[@id=\"QQeditor\"]/tidyText()",
+            "name": "author",
+            "need": false
+        },
+        {
+            "regex": "",
+            "xpath": "//div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
+            "name": "img",
+            "need": false
+        }
+  ]
+}
+
