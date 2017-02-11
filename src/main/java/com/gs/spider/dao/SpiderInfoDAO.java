@@ -123,15 +123,11 @@ public class SpiderInfoDAO extends IDAO<SpiderInfo> {
      * @return
      */
     public List<SpiderInfo> listAllDefaultCategory(int size, int page) {
-        size = 100;
+        size = 1000;//todo lwl
         SearchRequestBuilder searchRequestBuilder = client.prepareSearch(INDEX_NAME)
                 .setTypes(TYPE_NAME).setFetchSource("defaultCategory","")
                 .setQuery(QueryBuilders.matchAllQuery())
                 .setSize(size).setFrom(size * (page - 1));
-//
-//        QueryStringQueryBuilder queryStringQueryBuilder = new QueryStringQueryBuilder("新闻");
-//        queryStringQueryBuilder.field("siteName");
-//        searchRequestBuilder.setQuery(queryStringQueryBuilder);
 
         SearchResponse response = searchRequestBuilder.execute().actionGet();
         return warpHits2List(response.getHits());
