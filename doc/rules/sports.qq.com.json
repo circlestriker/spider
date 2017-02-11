@@ -35,11 +35,17 @@
   "needPublishTime": false,
   "ajaxSite": false,
   "dynamicFields": [
-    {
-      "regex": "",
-      "xpath": "//div[@id='Cnt-Main-Article-QQ']/img/@src",
-      "name": "image",
-      "need": false
-    }
+       {
+            "regex": "",
+            "xpath": "//div[@id=\"QQeditor\"]/tidyText()",
+            "name": "author",
+            "need": false
+        },
+        {
+            "regex": "",
+            "xpath": "//div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
+            "name": "img",
+            "need": false
+        }
   ]
 }
