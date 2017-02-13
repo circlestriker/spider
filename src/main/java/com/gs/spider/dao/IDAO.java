@@ -64,6 +64,9 @@ public abstract class IDAO<T> {
     }
 
     public String getTYPE_NAME() {
+        if(TYPE_NAME == null || TYPE_NAME.length() < 1){
+            return "webpage";
+        }
         return TYPE_NAME;
     }
 

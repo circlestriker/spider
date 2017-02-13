@@ -82,7 +82,7 @@ public class CommonWebpageDAO extends IDAO<Webpage> {
 
     @Override
     protected boolean check() {
-        return esClient.checkCommonsIndex() && esClient.checkWebpageType();
+        return esClient.checkCommonsIndex() && esClient.checkWebpageType(getTYPE_NAME());
     }
 
     /**

@@ -87,7 +87,7 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
 
     @Override
     protected boolean check() {
-        return esClient.checkCommonsIndex() && esClient.checkWebpageType();
+        return esClient.checkCommonsIndex() && esClient.checkWebpageType(getTYPE_NAME());
     }
 
     @Override
@@ -126,6 +126,9 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
         if (response.getHits().totalHits() == 0) {
             try {
                 LOG.debug("处理type:"+this.getTYPE_NAME());
+                if(getTYPE_NAME() != null && getTYPE_NAME().length() > 0) {
+                    esClient.checkWebpageType(getTYPE_NAME());
+                }
                 client.prepareIndex(INDEX_NAME, spiderInfo.getDefaultCategory())
                         .setId(Hashing.md5().hashString(webpage.getUrl(), Charset.forName("utf-8")).toString())
                         .setSource(gson.toJson(webpage))
