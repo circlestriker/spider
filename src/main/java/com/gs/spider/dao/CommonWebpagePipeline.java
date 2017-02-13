@@ -46,8 +46,8 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
 
     @Autowired
     public CommonWebpagePipeline(ESClient esClient) {
-        LOG.debug("类型:空");
         super(esClient, INDEX_NAME, "");
+        LOG.debug("类型:空");
     }
 
     /**
