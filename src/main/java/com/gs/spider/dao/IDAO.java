@@ -63,6 +63,14 @@ public abstract class IDAO<T> {
     public IDAO() {
     }
 
+    public String getTYPE_NAME() {
+        return TYPE_NAME;
+    }
+
+    public void setTYPE_NAME(String typeName) {
+        this.TYPE_NAME = typeName;
+    }
+
     /**
      * 初始化ES客户端
      *

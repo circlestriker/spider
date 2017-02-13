@@ -455,6 +455,8 @@ public class CommonSpider extends AsyncGather {
         };
         if (staticValue.isNeedEs()) {
             scheduler.setDuplicateRemover(commonWebpagePipeline);
+            //设置es中的type_name
+            commonWebpagePipeline.setTYPE_NAME(info.getDefaultCategory());
         }
         MySpider spider = (MySpider) makeSpider(info, task)
                 .setScheduler(scheduler);

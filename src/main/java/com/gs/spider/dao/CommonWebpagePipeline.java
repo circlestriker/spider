@@ -34,7 +34,7 @@ import java.util.Set;
  */
 @Component
 public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRemover, Pipeline {
-    private final static String INDEX_NAME = "commons", TYPE_NAME = "webpage";
+    private final static String INDEX_NAME = "commons";
     private static final String DYNAMIC_FIELD = "dynamic_fields";
     private static final Gson gson = new GsonBuilder()
             .registerTypeAdapter(Date.class, (JsonDeserializer<Date>) (json, typeOfT, context) -> new Date(json.getAsJsonPrimitive().getAsLong()))
@@ -46,7 +46,7 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
 
     @Autowired
     public CommonWebpagePipeline(ESClient esClient) {
-        super(esClient, INDEX_NAME, TYPE_NAME);
+        super(esClient, INDEX_NAME, "");
     }
 
     /**
@@ -94,7 +94,7 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
         Set<String> tempLists = urls.computeIfAbsent(task.getUUID(), k -> Sets.newConcurrentHashSet());
         //初始化已采集网站列表缓存
         if (tempLists.add(request.getUrl())) {//先检查当前生命周期是否抓取过,如果当前生命周期未抓取,则进一步检查ES
-            GetResponse response = client.prepareGet(INDEX_NAME, TYPE_NAME,
+            GetResponse response = client.prepareGet(INDEX_NAME, this.getTYPE_NAME(),
                     Hashing.md5().hashString(request.getUrl(), Charset.forName("utf-8")).toString()
             ).get();
             return response.isExists();
@@ -119,17 +119,18 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
         SpiderInfo spiderInfo = resultItems.get("spiderInfo");
         Webpage webpage = convertResultItems2Webpage(resultItems);
         SearchRequestBuilder searchRequestBuilder = client.prepareSearch(INDEX_NAME)
-                .setTypes(TYPE_NAME)
+                .setTypes(spiderInfo.getDefaultCategory())
                 .setQuery(QueryBuilders.matchQuery("url", webpage.getUrl()));
         SearchResponse response = searchRequestBuilder.execute().actionGet();
         if (response.getHits().totalHits() == 0) {
             try {
-                client.prepareIndex(INDEX_NAME, TYPE_NAME)
+                LOG.debug("处理type:"+this.getTYPE_NAME());
+                client.prepareIndex(INDEX_NAME, spiderInfo.getDefaultCategory())
                         .setId(Hashing.md5().hashString(webpage.getUrl(), Charset.forName("utf-8")).toString())
                         .setSource(gson.toJson(webpage))
                         .get();
             } catch (Exception e) {
-                LOG.error("索引 Webpage 出错," + e.getLocalizedMessage());
+                LOG.error("索引 Webpage 出错: " + e.getLocalizedMessage());
             }
         }
     }

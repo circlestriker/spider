@@ -54,9 +54,11 @@ public class CommonsSpiderService extends AsyncGatherService {
             validateSpiderInfo(spiderInfo);
             String spiderInfoId = spiderInfoService.index(spiderInfo).getResult();
             spiderInfo.setId(spiderInfoId);
+            LOG.debug("存储模板|id:", spiderInfoId);
         } else {
             //如果id不为空则更新这个id的爬虫模板
             spiderInfoService.update(spiderInfo);
+            LOG.debug("更新模板|id:", spiderInfo.getId());
         }
         return bundleBuilder.bundle(spiderInfo.toString(), () -> commonSpider.start(spiderInfo));
     }
