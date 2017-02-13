@@ -68,6 +68,7 @@ public abstract class IDAO<T> {
     }
 
     public void setTYPE_NAME(String typeName) {
+        LOG.debug("类型: "+typeName);
         this.TYPE_NAME = typeName;
     }
 
