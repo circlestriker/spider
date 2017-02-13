@@ -11,7 +11,7 @@
     "http://sports.qq.com"
   ],
   "contentReg": "",
-  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p[@style='TEXT-INDENT: 2em']",
+  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p",
   "titleReg": "",
   "titleXPath": "",
   "categoryReg": "",
