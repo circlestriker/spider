@@ -124,6 +124,7 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
         SearchResponse response = searchRequestBuilder.execute().actionGet();
         if (response.getHits().totalHits() == 0) {
             try {
+                LOG.debug("处理type:"+this.getTYPE_NAME());
                 client.prepareIndex(INDEX_NAME, spiderInfo.getDefaultCategory())
                         .setId(Hashing.md5().hashString(webpage.getUrl(), Charset.forName("utf-8")).toString())
                         .setSource(gson.toJson(webpage))
