@@ -17,6 +17,13 @@ index name或者type name可以用来区分频道。
 存数据时，type不能是中文
 
 搜索一个索引有5个主分片和5个索引各有一个分片事实上是一样的。
+
+Elasticsearch中每个文档都有版本号，每当文档变化（包括删除）都会使_version增加。
+
+PUT方法——“在这个URL中存储文档”变成了POST方法——"在这个类型下存储文档"。
+
+如果你想做的只是检查文档是否存在——你对内容完全不感兴趣——使用HEAD方法来代替GET。HEAD请求不会返回响应体，只有HTTP头
+
 ********************************************************************************
 查询索引基本信息:
 curl -XGET "http://localhost:9200/spiderinfo"
@@ -61,3 +68,13 @@ searchRequestBuilder.setQuery(queryStringQueryBuilder)
 GET /megacorp/employee/_search?q=last_name:Smith
 我们在请求中依旧使用_search关键字，然后将查询语句传递给参数q=。这样就可以得到所有姓氏为Smith的结果。
 
+只要content字段且pretty展示
+http://192.168.0.100:9200/commons/sports/_search?_source=content&&pretty
+
+只取content,title字段。添加字段继续用逗号隔开
+http://192.168.0.100:9200/commons/sports/_search?_source=content,title&&pretty
+
+***************************************todo*****************************************
+增量拉取
+性能: 是否压缩
+安全: 加密
