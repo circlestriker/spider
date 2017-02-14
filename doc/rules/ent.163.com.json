@@ -16,7 +16,7 @@
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "娱乐",
+    "defaultCategory": "ent",
     "urlReg": "http://ent.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
     "charset": "",
     "publishTimeXPath": "",

@@ -125,16 +125,16 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
         SearchResponse response = searchRequestBuilder.execute().actionGet();
         if (response.getHits().totalHits() == 0) {
             try {
-                LOG.debug("处理type:"+this.getTYPE_NAME());
+                LOG.debug("处理type:"+getTYPE_NAME());
                 if(getTYPE_NAME() != null && getTYPE_NAME().length() > 0) {
                     esClient.checkWebpageType(getTYPE_NAME());
                 }
-                client.prepareIndex(INDEX_NAME, spiderInfo.getDefaultCategory())
+                client.prepareIndex(INDEX_NAME, getTYPE_NAME())
                         .setId(Hashing.md5().hashString(webpage.getUrl(), Charset.forName("utf-8")).toString())
                         .setSource(gson.toJson(webpage))
                         .get();
             } catch (Exception e) {
-                LOG.error("索引 Webpage 出错: " + e.getLocalizedMessage());
+                LOG.error("索引type:"+getTYPE_NAME()+"|出错: " + e.getLocalizedMessage());
             }
         }
     }

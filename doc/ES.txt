@@ -16,6 +16,7 @@ index name或者type name可以用来区分频道。
 
 存数据时，type不能是中文
 
+搜索一个索引有5个主分片和5个索引各有一个分片事实上是一样的。
 ********************************************************************************
 查询索引基本信息:
 curl -XGET "http://localhost:9200/spiderinfo"
@@ -45,15 +46,18 @@ curl -XPOST 'localhost:9200/spiderinfo/_search?pretty' -d '
   "_source": ["siteName"]
 }'
 
-查询siteName包含新闻的记录
-QueryStringQueryBuilder queryStringQueryBuilder = new QueryStringQueryBuilder("新闻");
-queryStringQueryBuilder.field("siteName");
-searchRequestBuilder.setQuery(queryStringQueryBuilder)
-
-
-查询索引spiderinfo下类型spiderinfo下所有模板的网站名
+查询索引spiderinfo下类型spiderinfo下所有模板的网站名 //和上一个查询返回一样的结果
 curl -XPOST 'localhost:9200/spiderinfo,spiderinfo/_search?pretty' -d '
 {
   "query": { "match_all": {} },
   "_source": ["siteName"]
 }'
+
+查询siteName包含新闻的记录
+QueryStringQueryBuilder queryStringQueryBuilder = new QueryStringQueryBuilder("新闻");
+queryStringQueryBuilder.field("siteName");
+searchRequestBuilder.setQuery(queryStringQueryBuilder)
+
+GET /megacorp/employee/_search?q=last_name:Smith
+我们在请求中依旧使用_search关键字，然后将查询语句传递给参数q=。这样就可以得到所有姓氏为Smith的结果。
+
