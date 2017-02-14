@@ -60,6 +60,13 @@ curl -XPOST 'localhost:9200/spiderinfo,spiderinfo/_search?pretty' -d '
   "_source": ["siteName"]
 }'
 
+删除一个doc
+curl -XDELETE 'localhost:9200/commons/sports/1'
+
+删索引
+win% curl -XDELETE 'localhost:9200/commons'
+{"acknowledged":true}%
+
 查询siteName包含新闻的记录
 QueryStringQueryBuilder queryStringQueryBuilder = new QueryStringQueryBuilder("新闻");
 queryStringQueryBuilder.field("siteName");
@@ -74,7 +81,7 @@ http://192.168.0.100:9200/commons/sports/_search?_source=content&&pretty
 只取content,title字段。添加字段继续用逗号隔开
 http://192.168.0.100:9200/commons/sports/_search?_source=content,title&&pretty
 
+
 ***************************************todo*****************************************
-增量拉取
 性能: 是否压缩
 安全: 加密
