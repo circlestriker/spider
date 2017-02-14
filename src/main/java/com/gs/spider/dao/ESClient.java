@@ -35,7 +35,6 @@ import java.net.InetAddress;
 public class ESClient {
     private final static String COMMON_INDEX_CONFIG = "commonIndex.json";
     private static final String COMMONS_INDEX_NAME = "commons";
-    private static final String WEBPAGE_TYPE_NAME = "webpage";
     private static final String SPIDER_INFO_TYPE_NAME = "spiderinfo";
     private static final String SPIDER_INFO_INDEX_NAME = "spiderinfo";
     private Logger LOG = LogManager.getLogger(ESClient.class);
@@ -49,8 +48,8 @@ public class ESClient {
     }
 
 
-    public boolean checkWebpageType() {
-        return checkType(COMMONS_INDEX_NAME, WEBPAGE_TYPE_NAME, "webpage.json");
+    public boolean checkWebpageType(String typeName) {
+        return checkType(COMMONS_INDEX_NAME, typeName, "webpage.json");
     }
 
 

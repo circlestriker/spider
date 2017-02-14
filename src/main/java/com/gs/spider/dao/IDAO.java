@@ -63,6 +63,18 @@ public abstract class IDAO<T> {
     public IDAO() {
     }
 
+    public String getTYPE_NAME() {
+        if(TYPE_NAME == null || TYPE_NAME.length() < 1){
+            return "webpage";
+        }
+        return TYPE_NAME;
+    }
+
+    public void setTYPE_NAME(String typeName) {
+        LOG.debug("类型: "+typeName);
+        this.TYPE_NAME = typeName;
+    }
+
     /**
      * 初始化ES客户端
      *

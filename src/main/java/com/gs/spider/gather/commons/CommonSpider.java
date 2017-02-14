@@ -250,7 +250,7 @@ public class CommonSpider extends AsyncGather {
                 String fieldName = conf.getName();
                 String fieldData = null;
                 if (!StringUtils.isBlank(conf.getXpath())) {//提取
-                    fieldData = page.getHtml().xpath(conf.getXpath()).get();
+                    fieldData = page.getHtml().xpath(conf.getXpath()).get();//动态字段不去除html标签
                 } else if (!StringUtils.isBlank(conf.getRegex())) {
                     fieldData = page.getHtml().regex(conf.getRegex()).get();
                 }
@@ -455,6 +455,8 @@ public class CommonSpider extends AsyncGather {
         };
         if (staticValue.isNeedEs()) {
             scheduler.setDuplicateRemover(commonWebpagePipeline);
+            //设置es中的type_name
+            commonWebpagePipeline.setTYPE_NAME(info.getDefaultCategory());
         }
         MySpider spider = (MySpider) makeSpider(info, task)
                 .setScheduler(scheduler);

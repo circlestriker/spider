@@ -5,19 +5,19 @@
   "maxPageGather": "10",
   "timeout": "5000",
   "priority": "0",
-  "siteName": "腾讯新闻",
-  "domain": "sports.qq.com",
+  "siteName": "腾讯娱乐",
+  "domain": "ent.qq.com",
   "startURL": [
-    "http://sports.qq.com"
+    "http://ent.qq.com"
   ],
   "contentReg": "",
-  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p",
+  "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p[@style='TEXT-INDENT: 2em']",
   "titleReg": "",
   "titleXPath": "",
   "categoryReg": "",
   "categoryXPath": "",
-  "defaultCategory": "sports",
-  "urlReg": "http://sports.qq.com/a/\\d{8}/\\d+\\.htm",
+  "defaultCategory": "娱乐",
+  "urlReg": "http://ent.qq.com/a/\\d{8}/\\d+\\.htm",
   "charset": "",
   "publishTimeXPath": "",
   "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
@@ -49,3 +49,4 @@
         }
   ]
 }
+
