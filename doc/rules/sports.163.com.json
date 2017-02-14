@@ -1,0 +1,44 @@
+{
+  "thread": "2",
+  "retry": "2",
+  "sleep": "800",
+  "maxPageGather": "10",
+  "timeout": "5000",
+  "priority": "0",
+  "siteName": "网易体育",
+  "domain": "sports.163.com",
+  "startURL": [
+    "http://sports.163.com"
+  ],
+  "contentReg": "",
+  "contentXPath": "//div[@id='endText']/tidyText()",
+  "titleReg": "",
+  "titleXPath": "",
+  "categoryReg": "",
+  "defaultCategory": "",
+  "urlReg": "http://sports.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
+  "charset": "",
+  "publishTimeXPath": "",
+  "publishTimeReg": "<span class=\"article-time\">(.*?)</span>",
+  "publishTimeFormat": "yyyy-MM-dd hh:mm",
+  "authorReg": "",
+  "authorXPath": "//h1/tidyText()",
+  "lang": "",
+  "country": "",
+  "callbackURL": [],
+  "userAgent": "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30",
+  "doNLP": true,
+  "gatherFirstPage": false,
+  "needTitle": false,
+  "needContent": false,
+  "needPublishTime": false,
+  "ajaxSite": false,
+  "dynamicFields": [
+    {
+      "regex": "",
+      "xpath": "//h1/tidyText()",
+      "name": "author",
+      "need": false
+    }
+  ]
+}

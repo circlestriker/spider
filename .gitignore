@@ -1,3 +1,7 @@
 target
 .idea
 spider.iml
+striker_gather.iml
+.classpath
+.project
+.settings/

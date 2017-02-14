@@ -629,7 +629,7 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-info">抓取样例数据</button>
+                <button type="submit" class="btn btn-info">验证模板配置</button>
                 <button type="button" class="btn btn-primary" onclick="exportJson()">导出模板</button>
                 <button type="button" class="btn btn-danger" onclick="submitTask()">提交抓取任务</button>
                 <button type="button" class="btn btn-warning" onclick="save()">存储此模板</button>
