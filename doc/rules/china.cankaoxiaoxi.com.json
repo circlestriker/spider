@@ -1,0 +1,60 @@
+{
+    "siteName": "参考消息",
+    "domain": "china.cankaoxiaoxi.com",
+    "startURL": [
+        "http://china.cankaoxiaoxi.com"
+    ],
+    "id": "",
+    "thread": "2",
+    "retry": "2",
+    "sleep": "800",
+    "maxPageGather": "10",
+    "priority": "0",
+    "timeout": "5000",
+    "contentReg": "",
+    "contentXPath": "//div[@id='ctrlfscont']/p",
+    "titleReg": "",
+    "titleXPath": "",
+    "categoryReg": "",
+    "categoryXPath": "",
+    "defaultCategory": "中国",
+    "urlReg": "http://www.cankaoxiaoxi.com/china/2017\\d{4}/\\d+\\.shtml",
+    "charset": "",
+    "publishTimeXPath": "",
+    "publishTimeReg": "<span id='pubtime_baidu'>(.*?)</span>",
+    "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
+    "authorReg": "",
+    "authorXPath": "//span[@id='editor_baidu']/tidyText()",
+    "imgReg": "",
+    "imgXPath": "//div[@id='ctrlfscont']/p/a/img/@src",
+    "lang": "",
+    "country": "",
+    "callbackURL": [],
+    "userAgent": "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30",
+    "proxyHost": "",
+    "proxyPort": "0",
+    "proxyUsername": "",
+    "proxyPassword": "",
+    "doNLP": true,
+    "needContent": true,
+    "saveCapture": true,
+    "gatherFirstPage": false,
+    "needTitle": false,
+    "needPublishTime": false,
+    "autoDetectPublishDate": false,
+    "dynamicFields": [
+        {
+            "regex": "",
+            "xpath": "//span[@id='editor_baidu']/tidyText()",
+            "name": "author",
+            "need": false
+        },
+        {
+            "regex": "",
+            "xpath": "//div[@id='ctrlfscont']/p/a/img/@src",
+            "name": "img",
+            "need": false
+        }
+    ],
+    "staticFields": []
+}
