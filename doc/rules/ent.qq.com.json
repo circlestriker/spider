@@ -10,6 +10,7 @@
   "startURL": [
     "http://ent.qq.com"
   ],
+  "id": "",
   "contentReg": "",
   "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p",
   "titleReg": "",
