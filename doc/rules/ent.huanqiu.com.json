@@ -17,7 +17,7 @@
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "娱乐",
+    "defaultCategory": "ent",
     "urlReg": "http://ent.huanqiu.com/star/mingxing-\\w+/\\d{4}-\\d{2}/\\d+\\.html",
     "charset": "",
     "publishTimeXPath": "//strong[@id='pubtime_baidu']/text()",

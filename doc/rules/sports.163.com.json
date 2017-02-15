@@ -17,7 +17,7 @@
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "体育",
+    "defaultCategory": "sport",
     "urlReg": "http://sports.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
     "charset": "",
     "publishTimeXPath": "",
