@@ -1,0 +1,67 @@
+{
+    "siteName": "环球娱乐",
+    "domain": "ent.huanqiu.com",
+    "startURL": [
+        "http://ent.huanqiu.com"
+    ],
+    "id": "AVo2t6z9hUgtWtovVWHU",
+    "thread": "2",
+    "retry": "2",
+    "sleep": "800",
+    "maxPageGather": "10",
+    "timeout": "5000",
+    "contentReg": "",
+    "contentXPath": "//div[@id='text']/p",
+    "titleReg": "",
+    "titleXPath": "",
+    "categoryReg": "",
+    "categoryXPath": "",
+    "defaultCategory": "娱乐",
+    "urlReg": "http://ent.huanqiu.com/star/mingxing-\\w+/\\d{4}-\\d{2}/\\d+\\.html",
+    "charset": "",
+    "publishTimeXPath": "//strong[@id='pubtime_baidu']/text()",
+    "publishTimeReg": "",
+    "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
+    "imgReg": "",
+    "imgXPath": "//div[@id='text']/p[@align='center']/img/@src",
+    "dateReg": "",
+    "dateXPath": "//div[@class='summaryNew']/strong[@class='timeSummary']/text()",
+    "authorReg": "",
+    "authorXPath": "//span[@id='editor_baidu']/text()",
+    "lang": "",
+    "country": "",
+    "callbackURL": [],
+    "userAgent": "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30",
+    "proxyHost": "",
+    "proxyPort": "0",
+    "proxyUsername": "",
+    "proxyPassword": "",
+    "doNLP": true,
+    "saveCapture": true,
+    "gatherFirstPage": false,
+    "needTitle": false,
+    "needContent": false,
+    "needPublishTime": false,
+    "autoDetectPublishDate": false,
+    "dynamicFields": [
+        {
+            "regex": "",
+            "xpath": "//div[@id='text']/p[@align='center']/img/@src",
+            "name": "img",
+            "need": false
+        },
+        {
+            "regex": "",
+            "xpath": "//div[@class='summaryNew']/strong[@class='timeSummary']/text()",
+            "name": "date",
+            "need": false
+        },
+        {
+            "regex": "",
+            "xpath": "//span[@id='editor_baidu']/text()",
+            "name": "author",
+            "need": false
+        }
+    ],
+    "staticFields": []
+}
