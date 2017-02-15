@@ -22,7 +22,7 @@
   "charset": "",
   "publishTimeXPath": "",
   "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
-  "publishTimeFormat": "yyyy-MM-dd hh:mm",
+  "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
   "authorReg": "",
   "authorXPath": "//div[@id=\"QQeditor\"]/tidyText()",
   "imgReg": "",
