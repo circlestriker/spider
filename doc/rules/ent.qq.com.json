@@ -10,6 +10,7 @@
   "startURL": [
     "http://ent.qq.com"
   ],
+  "id": "",
   "contentReg": "",
   "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p",
   "titleReg": "",
@@ -21,9 +22,11 @@
   "charset": "",
   "publishTimeXPath": "",
   "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
-  "publishTimeFormat": "yyyy-MM-dd hh:mm",
+  "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
   "authorReg": "",
-  "authorXPath": "//h1/tidyText()",
+  "authorXPath": "//div[@id=\"QQeditor\"]/tidyText()",
+  "imgReg": "",
+  "imgXPath": "div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
   "lang": "",
   "country": "",
   "callbackURL": [],

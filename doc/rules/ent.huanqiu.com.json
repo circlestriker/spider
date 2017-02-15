@@ -4,7 +4,8 @@
     "startURL": [
         "http://ent.huanqiu.com"
     ],
-    "id": "AVo2t6z9hUgtWtovVWHU",
+    "id": "",
+    "priority": "0",
     "thread": "2",
     "retry": "2",
     "sleep": "800",
@@ -24,8 +25,6 @@
     "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
     "imgReg": "",
     "imgXPath": "//div[@id='text']/p[@align='center']/img/@src",
-    "dateReg": "",
-    "dateXPath": "//div[@class='summaryNew']/strong[@class='timeSummary']/text()",
     "authorReg": "",
     "authorXPath": "//span[@id='editor_baidu']/text()",
     "lang": "",
@@ -48,12 +47,6 @@
             "regex": "",
             "xpath": "//div[@id='text']/p[@align='center']/img/@src",
             "name": "img",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//div[@class='summaryNew']/strong[@class='timeSummary']/text()",
-            "name": "date",
             "need": false
         },
         {

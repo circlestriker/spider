@@ -1,8 +1,8 @@
 {
-    "siteName": "网易体育",
-    "domain": "sports.163.com",
+    "siteName": "参考消息",
+    "domain": "china.cankaoxiaoxi.com",
     "startURL": [
-        "http://sports.163.com"
+        "http://china.cankaoxiaoxi.com"
     ],
     "id": "",
     "thread": "2",
@@ -12,23 +12,21 @@
     "priority": "0",
     "timeout": "5000",
     "contentReg": "",
-    "contentXPath": "//div[@id='endText']/p",
+    "contentXPath": "//div[@id='ctrlfscont']/p",
     "titleReg": "",
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "体育",
-    "urlReg": "http://sports.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
+    "defaultCategory": "中国",
+    "urlReg": "http://www.cankaoxiaoxi.com/china/2017\\d{4}/\\d+\\.shtml",
     "charset": "",
     "publishTimeXPath": "",
-    "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
-    "publishTimeFormat": "yyyy-MM-dd hh:mm",
+    "publishTimeReg": "<span id='pubtime_baidu'>(.*?)</span>",
+    "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
     "authorReg": "",
-    "authorXPath": "//span[@class='left']/text()",
+    "authorXPath": "//span[@id='editor_baidu']/tidyText()",
     "imgReg": "",
-    "imgXPath": "//div[@id='endText']/p/img/@src",
-    "dateReg": "",
-    "dateXPath": "//div[@class='post_time_source']/text()",
+    "imgXPath": "//div[@id='ctrlfscont']/p/a/img/@src",
     "lang": "",
     "country": "",
     "callbackURL": [],
@@ -47,20 +45,14 @@
     "dynamicFields": [
         {
             "regex": "",
-            "xpath": "//span[@class='left']/text()",
+            "xpath": "//span[@id='editor_baidu']/tidyText()",
             "name": "author",
             "need": false
         },
         {
             "regex": "",
-            "xpath": "//div[@id='endText']/p/img/@src",
+            "xpath": "//div[@id='ctrlfscont']/p/a/img/@src",
             "name": "img",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//div[@class='post_time_source']/text()",
-            "name": "date",
             "need": false
         }
     ],

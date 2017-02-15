@@ -1,8 +1,8 @@
 {
-    "siteName": "网易体育",
-    "domain": "sports.163.com",
+    "siteName": "凤凰资讯",
+    "domain": "ent.ifeng.com",
     "startURL": [
-        "http://sports.163.com"
+        "http://ent.ifeng.com"
     ],
     "id": "",
     "thread": "2",
@@ -12,23 +12,21 @@
     "priority": "0",
     "timeout": "5000",
     "contentReg": "",
-    "contentXPath": "//div[@id='endText']/p",
+    "contentXPath": "//div[@id='main_content']/p",
     "titleReg": "",
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "体育",
-    "urlReg": "http://sports.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
+    "defaultCategory": "娱乐",
+    "urlReg": "http://ent.ifeng.com/a/2017\\d{4}/\\d+_\\d+\\.shtml",
     "charset": "",
     "publishTimeXPath": "",
-    "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
-    "publishTimeFormat": "yyyy-MM-dd hh:mm",
+    "publishTimeReg": "<span itemprop=\"datePublished\" class=\"ss01\">(.*?)</span>",
+    "publishTimeFormat": "yyyy年MM月dd日 hh:mm",
     "authorReg": "",
-    "authorXPath": "//span[@class='left']/text()",
+    "authorXPath": "//p[@class='zb_ph pc_none_new']/tidyText()",
     "imgReg": "",
-    "imgXPath": "//div[@id='endText']/p/img/@src",
-    "dateReg": "",
-    "dateXPath": "//div[@class='post_time_source']/text()",
+    "imgXPath": "//div[@id='main_content']/p[@class='detailPic']/img/@src",
     "lang": "",
     "country": "",
     "callbackURL": [],
@@ -47,20 +45,14 @@
     "dynamicFields": [
         {
             "regex": "",
-            "xpath": "//span[@class='left']/text()",
+            "xpath": "//p[@class='zb_ph pc_none_new']/tidyText()",
             "name": "author",
             "need": false
         },
         {
             "regex": "",
-            "xpath": "//div[@id='endText']/p/img/@src",
+            "xpath": "//div[@id='main_content']/p[@class='detailPic']/img/@src",
             "name": "img",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//div[@class='post_time_source']/text()",
-            "name": "date",
             "need": false
         }
     ],
