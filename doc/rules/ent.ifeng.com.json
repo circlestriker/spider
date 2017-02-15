@@ -51,7 +51,7 @@
         },
         {
             "regex": "",
-            "xpath": "//div[@id='main_content']/p[@class='detailPic']/img/@src",
+            "xpath": "//div[@id='main_content']/p[@class='detailPic']/img/@src/",
             "name": "img",
             "need": false
         }
