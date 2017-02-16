@@ -24,6 +24,10 @@ PUT方法——“在这个URL中存储文档”变成了POST方法——"在这
 
 如果你想做的只是检查文档是否存在——你对内容完全不感兴趣——使用HEAD方法来代替GET。HEAD请求不会返回响应体，只有HTTP头
 
+如果报can't run as root则说明使用了root账户启动ES，这是不被允许的。参考https://my.oschina.net/topeagle/blog/591451
+
+
+
 ********************************************************************************
 查询索引基本信息:
 curl -XGET "http://localhost:9200/spiderinfo"
