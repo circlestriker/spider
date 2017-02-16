@@ -17,7 +17,7 @@
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "娱乐",
+    "defaultCategory": "ent",
     "urlReg": "http://ent.ifeng.com/a/2017\\d{4}/\\d+_\\d+\\.shtml",
     "charset": "",
     "publishTimeXPath": "",
