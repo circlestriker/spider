@@ -38,6 +38,9 @@ curl 'localhost:9200/_cat/nodes?v'
 列出所有的索引
 curl 'localhost:9200/_cat/indices?v'
 
+列出索引commons下的所有type
+curl 'localhost:9200/commons/_mappings?pretty'
+
 如果我们不想返回完整的源文档，我们可以指定返回的几个字段。
 下面这个例子说明了从搜索中只返回两个字段account_number和balance（当然，这两个字段都是指_source中的字段），以下是具体的搜索：
 curl -XPOST 'localhost:9200/bank/_search?pretty' -d '

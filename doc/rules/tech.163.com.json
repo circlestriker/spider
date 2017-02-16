@@ -8,7 +8,7 @@
     "thread": "2",
     "retry": "2",
     "sleep": "800",
-    "maxPageGather": "10",
+    "maxPageGather": "20",
     "timeout": "5000",
     "priority": "0",
     "contentReg": "",
