@@ -17,7 +17,7 @@
   "titleXPath": "",
   "categoryReg": "",
   "categoryXPath": "",
-  "defaultCategory": "娱乐",
+  "defaultCategory": "ent",
   "urlReg": "http://ent.qq.com/a/\\d{8}/\\d+\\.htm",
   "charset": "",
   "publishTimeXPath": "",
