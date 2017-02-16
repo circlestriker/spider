@@ -26,7 +26,7 @@ PUT方法——“在这个URL中存储文档”变成了POST方法——"在这
 
 如果报can't run as root则说明使用了root账户启动ES，这是不被允许的。参考https://my.oschina.net/topeagle/blog/591451
 
-
+es: 插件  kopf+postman+kibana
 
 ********************************************************************************
 查询索引基本信息:

@@ -1,8 +1,8 @@
 {
-    "siteName": "网易娱乐",
-    "domain": "ent.163.com",
+    "siteName": "网易科技",
+    "domain": "tech.163.com",
     "startURL": [
-        "http://ent.163.com"
+        "http://tech.163.com"
     ],
     "id": "",
     "thread": "2",
@@ -14,21 +14,17 @@
     "contentReg": "",
     "contentXPath": "//div[@id='endText']/p",
     "titleReg": "",
-    "titleXPath": "",
+    "titleXPath": "//h1/text()",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "ent",
-    "urlReg": "http://ent.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
+    "defaultCategory": "tech",
+    "urlReg": "http://tech.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
     "charset": "",
     "publishTimeXPath": "//div[@class='post_time_source']/regex('\\d+-\\d+-\\d+ \\d+:\\d+:\\d+')",
     "publishTimeReg": "",
     "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
     "imgReg": "",
     "imgXPath": "//div[@class='post_text']/p[@class='f_center']/img/@src",
-    "dateReg": "",
-    "dateXPath": "//div[@class='post_time_source']/tidyText()",
-    "authorReg": "",
-    "authorXPath": "//span[@class='ep-editor']/text()",
     "lang": "",
     "country": "",
     "callbackURL": [],
@@ -49,18 +45,6 @@
             "regex": "",
             "xpath": "//div[@class='post_text']/p[@class='f_center']/img/@src",
             "name": "img",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//div[@class='post_time_source']/regex('\\d+-\\d+-\\d+ \\d+:\\d+:\\d+')",
-            "name": "date",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//span[@class='ep-editor']/text()",
-            "name": "author",
             "need": false
         }
     ],

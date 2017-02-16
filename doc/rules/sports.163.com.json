@@ -17,14 +17,12 @@
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "sport",
+    "defaultCategory": "sports",
     "urlReg": "http://sports.163.com/\\d{2}/\\d{4}/\\d{2}/\\w+\\.html",
     "charset": "",
-    "publishTimeXPath": "",
-    "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
-    "publishTimeFormat": "yyyy-MM-dd hh:mm",
-    "authorReg": "",
-    "authorXPath": "//span[@class='left']/text()",
+    "publishTimeXPath": "//div[@class='post_time_source']/regex('\\d+-\\d+-\\d+ \\d+:\\d+:\\d+')",
+    "publishTimeReg": "",
+    "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
     "imgReg": "",
     "imgXPath": "//div[@id='endText']/p/img/@src",
     "dateReg": "",
@@ -47,19 +45,13 @@
     "dynamicFields": [
         {
             "regex": "",
-            "xpath": "//span[@class='left']/text()",
-            "name": "author",
-            "need": false
-        },
-        {
-            "regex": "",
             "xpath": "//div[@id='endText']/p/img/@src",
             "name": "img",
             "need": false
         },
         {
             "regex": "",
-            "xpath": "//div[@class='post_time_source']/text()",
+            "xpath": "//div[@class='post_time_source']/regex('\\d+-\\d+-\\d+ \\d+:\\d+:\\d+')",
             "name": "date",
             "need": false
         }
