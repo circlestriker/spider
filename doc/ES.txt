@@ -79,7 +79,18 @@ GET /megacorp/employee/_search?q=last_name:Smith
 http://192.168.0.100:9200/commons/sports/_search?_source=content&&pretty
 
 只取content,title字段。添加字段继续用逗号隔开
-http://192.168.0.100:9200/commons/sports/_search?_source=content,title&&pretty
+http://192.168.0.100:9200/commons/sports/_search?_source=content,title&pretty
 
+指定id(741cf432c1ecc0408a6d529d5b1a719d)取文档
+http://192.168.0.100:9200/commons/sports/741cf432c1ecc0408a6d529d5b1a719d?_source=content,title&pretty
 
+存入文档
+curl -XPUT 'localhost:9200/website/blog/1' -d '
+{
+  "title": "My first blog entry",
+  "text":  "Just trying this out...",
+  "date":  "2014/01/01"
+}'
 ***************************************todo*****************************************
+
+http://116.213.92.190:9200/website/blog/_search?pretty&from=0
