@@ -1,32 +1,30 @@
 {
-    "siteName": "腾讯新闻",
-    "domain": "sports.qq.com",
+    "siteName": "中国证券网",
+    "domain": "stock.cnstock.com",
     "startURL": [
-        "http://sports.qq.com"
+        "http://stock.cnstock.com"
     ],
     "id": "",
     "thread": "2",
     "retry": "2",
     "sleep": "800",
-    "maxPageGather": "50",
+    "maxPageGather": "10",
     "priority": "0",
     "timeout": "5000",
     "contentReg": "",
-    "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p",
+    "contentXPath": "//div[@id='qmt_content_div']/p",
     "titleReg": "",
-    "titleXPath": "",
+    "titleXPath": "//h1/text()",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "sports",
-    "urlReg": "http://sports.qq.com/a/\\d{8}/\\d+\\.htm",
+    "defaultCategory": "stock",
+    "urlReg": "http://stock.cnstock.com/stock/smk_\\w+/\\d{6}/\\d+\\.htm",
     "charset": "",
-    "publishTimeXPath": "",
-    "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
+    "publishTimeXPath": "//span[@class='timer']/text()",
+    "publishTimeReg": "",
     "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
-    "authorReg": "",
-    "authorXPath": "//div[@id=\"QQeditor\"]/tidyText()",
     "imgReg": "",
-    "imgXPath": "//div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
+    "imgXPath": "//div[@id='qmt_content_div']/p/img/@src",
     "lang": "",
     "country": "",
     "callbackURL": [],
@@ -43,15 +41,9 @@
     "needPublishTime": false,
     "autoDetectPublishDate": false,
     "dynamicFields": [
-        {
+          {
             "regex": "",
-            "xpath": "//div[@id=\"QQeditor\"]/tidyText()",
-            "name": "author",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
+            "xpath": "//div[@id='qmt_content_div']/p/img/@src",
             "name": "img",
             "need": false
         }

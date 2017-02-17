@@ -1,32 +1,30 @@
 {
-    "siteName": "腾讯新闻",
-    "domain": "sports.qq.com",
+    "siteName": "国际在线军事",
+    "domain": "mil.cri.cn",
     "startURL": [
-        "http://sports.qq.com"
+        "http://mil.cri.cn"
     ],
     "id": "",
     "thread": "2",
     "retry": "2",
     "sleep": "800",
-    "maxPageGather": "50",
+    "maxPageGather": "10",
     "priority": "0",
     "timeout": "5000",
     "contentReg": "",
-    "contentXPath": "//div[@id='Cnt-Main-Article-QQ']/p",
+    "contentXPath": "//div[@id='abody']/p",
     "titleReg": "",
-    "titleXPath": "",
+    "titleXPath": "//h1/text()",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "sports",
-    "urlReg": "http://sports.qq.com/a/\\d{8}/\\d+\\.htm",
+    "defaultCategory": "military",
+    "urlReg": "http://mil.cri.cn/\\d{8}/\\w+-\\w{4}-\\w{4}-\\w{4}-\\w+\\.html",
     "charset": "",
-    "publishTimeXPath": "",
-    "publishTimeReg": "<span class=\"a_time\">(.*?)</span>",
+    "publishTimeXPath": "//span[@id='acreatedtime']/text()",
+    "publishTimeReg": "",
     "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
-    "authorReg": "",
-    "authorXPath": "//div[@id=\"QQeditor\"]/tidyText()",
     "imgReg": "",
-    "imgXPath": "//div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
+    "imgXPath": "//div[@id='abody']/p/img/@src",
     "lang": "",
     "country": "",
     "callbackURL": [],
@@ -45,13 +43,7 @@
     "dynamicFields": [
         {
             "regex": "",
-            "xpath": "//div[@id=\"QQeditor\"]/tidyText()",
-            "name": "author",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//div[@id=\"Cnt-Main-Article-QQ\"]/p/img/@src",
+            "xpath": "//div[@id='abody']/p/img/@src",
             "name": "img",
             "need": false
         }

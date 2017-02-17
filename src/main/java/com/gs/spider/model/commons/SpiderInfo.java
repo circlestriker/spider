@@ -86,6 +86,10 @@ public class SpiderInfo {
      */
     private String defaultCategory;
     /**
+     * 展示信息 czx
+     */
+    private String typeName;
+    /**
      * url正则
      */
     private String urlReg;
@@ -152,13 +156,22 @@ public class SpiderInfo {
     /**
      * 自动探测发布时间
      */
+    
     private boolean autoDetectPublishDate = false;
     private String proxyHost;
     private int proxyPort;
     private String proxyUsername;
     private String proxyPassword;
+    
+    public String getTypeName() {
+		return typeName;
+	}
 
-    public int getThread() {
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
+
+	public int getThread() {
         return thread;
     }
 
@@ -508,8 +521,17 @@ public class SpiderInfo {
         this.proxyPassword = proxyPassword;
         return this;
     }
+    
+    
+   /* public String getTypeName() {
+		return typeName;
+	}
 
-    @Override
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}*/
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
