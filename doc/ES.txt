@@ -17,6 +17,17 @@ index name或者type name可以用来区分频道。
 存数据时，type不能是中文
 
 搜索一个索引有5个主分片和5个索引各有一个分片事实上是一样的。
+
+Elasticsearch中每个文档都有版本号，每当文档变化（包括删除）都会使_version增加。
+
+PUT方法——“在这个URL中存储文档”变成了POST方法——"在这个类型下存储文档"。
+
+如果你想做的只是检查文档是否存在——你对内容完全不感兴趣——使用HEAD方法来代替GET。HEAD请求不会返回响应体，只有HTTP头
+
+如果报can't run as root则说明使用了root账户启动ES，这是不被允许的。参考https://my.oschina.net/topeagle/blog/591451
+
+es: 插件  kopf+postman+kibana
+
 ********************************************************************************
 查询索引基本信息:
 curl -XGET "http://localhost:9200/spiderinfo"
@@ -26,6 +37,9 @@ curl 'localhost:9200/_cat/nodes?v'
 
 列出所有的索引
 curl 'localhost:9200/_cat/indices?v'
+
+列出索引commons下的所有type
+curl 'localhost:9200/commons/_mappings?pretty'
 
 如果我们不想返回完整的源文档，我们可以指定返回的几个字段。
 下面这个例子说明了从搜索中只返回两个字段account_number和balance（当然，这两个字段都是指_source中的字段），以下是具体的搜索：
@@ -53,6 +67,13 @@ curl -XPOST 'localhost:9200/spiderinfo,spiderinfo/_search?pretty' -d '
   "_source": ["siteName"]
 }'
 
+删除一个doc
+curl -XDELETE 'localhost:9200/commons/sports/1'
+
+删索引
+win% curl -XDELETE 'localhost:9200/commons'
+{"acknowledged":true}%
+
 查询siteName包含新闻的记录
 QueryStringQueryBuilder queryStringQueryBuilder = new QueryStringQueryBuilder("新闻");
 queryStringQueryBuilder.field("siteName");
@@ -61,3 +82,22 @@ searchRequestBuilder.setQuery(queryStringQueryBuilder)
 GET /megacorp/employee/_search?q=last_name:Smith
 我们在请求中依旧使用_search关键字，然后将查询语句传递给参数q=。这样就可以得到所有姓氏为Smith的结果。
 
+只要content字段且pretty展示
+http://192.168.0.100:9200/commons/sports/_search?_source=content&&pretty
+
+只取content,title字段。添加字段继续用逗号隔开
+http://192.168.0.100:9200/commons/sports/_search?_source=content,title&pretty
+
+指定id(741cf432c1ecc0408a6d529d5b1a719d)取文档
+http://192.168.0.100:9200/commons/sports/741cf432c1ecc0408a6d529d5b1a719d?_source=content,title&pretty
+
+存入文档
+curl -XPUT 'localhost:9200/website/blog/1' -d '
+{
+  "title": "My first blog entry",
+  "text":  "Just trying this out...",
+  "date":  "2014/01/01"
+}'
+***************************************todo*****************************************
+
+http://116.213.92.190:9200/website/blog/_search?pretty&from=0

@@ -418,6 +418,11 @@
                                placeholder="默认分类" value="${spiderInfo.defaultCategory}">
                     </div>
                     <div class="form-group">
+                        <label for="typeName">typeName</label>
+                        <input type="text" class="form-control" id="typeName" name="typeName"
+                               placeholder="分类名称" value="${spiderInfo.typeName}">
+                    </div>
+                    <div class="form-group">
                         <label for="urlReg">urlReg</label>
                         <input type="text" class="form-control" id="urlReg" name="urlReg" placeholder="url正则"
                                value="${spiderInfo.urlReg}">

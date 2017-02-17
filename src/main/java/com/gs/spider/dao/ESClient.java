@@ -49,7 +49,7 @@ public class ESClient {
 
 
     public boolean checkWebpageType(String typeName) {
-        return checkType(COMMONS_INDEX_NAME, typeName, "webpage.json");
+        return checkType(COMMONS_INDEX_NAME, typeName, typeName+".json");
     }
 
 
@@ -109,10 +109,10 @@ public class ESClient {
                 }
                 mapPuttingResponse = client.admin().indices().putMapping(putMappingRequest).actionGet();
             } else {
-                LOG.fatal("创建" + type + " type失败,配置文件加载失败");
+                LOG.fatal("创建type:" + type + "失败,配置文件加载失败");
                 return false;
             }
-            if (mapPuttingResponse.isAcknowledged()) LOG.info("创建" + type + "type成功");
+            if (mapPuttingResponse.isAcknowledged()) LOG.info("创建type:" + type + "成功");
             else {
                 LOG.error("创建" + type + "type索引失败");
                 return false;

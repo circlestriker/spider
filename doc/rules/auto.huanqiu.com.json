@@ -1,8 +1,8 @@
 {
-    "siteName": "环球娱乐",
-    "domain": "ent.huanqiu.com",
+    "siteName": "环球汽车",
+    "domain": "auto.huanqiu.com",
     "startURL": [
-        "http://ent.huanqiu.com"
+        "http://auto.huanqiu.com"
     ],
     "id": "",
     "priority": "0",
@@ -14,19 +14,17 @@
     "contentReg": "",
     "contentXPath": "//div[@id='text']/p",
     "titleReg": "",
-    "titleXPath": "",
+    "titleXPath": "//h1/text()",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "ent",
-    "urlReg": "http://ent.huanqiu.com/star/mingxing-\\w+/\\d{4}-\\d{2}/\\d+\\.html",
+    "defaultCategory": "auto",
+    "urlReg": "http://auto.huanqiu.com/globalnews/\\d{4}-\\d{2}/\\d+.html",
     "charset": "",
     "publishTimeXPath": "//strong[@id='pubtime_baidu']/text()",
     "publishTimeReg": "",
     "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
     "imgReg": "",
-    "imgXPath": "//div[@id='text']/p[@align='center']/img/@src",
-    "authorReg": "",
-    "authorXPath": "//span[@id='editor_baidu']/text()",
+    "imgXPath": "//div[@id='text']/p/img/@src",
     "lang": "",
     "country": "",
     "callbackURL": [],
@@ -45,14 +43,8 @@
     "dynamicFields": [
         {
             "regex": "",
-            "xpath": "//div[@id='text']/p[@align='center']/img/@src",
+            "xpath": "//div[@id='text']/p/img/@src",
             "name": "img",
-            "need": false
-        },
-        {
-            "regex": "",
-            "xpath": "//span[@id='editor_baidu']/text()",
-            "name": "author",
             "need": false
         }
     ],
