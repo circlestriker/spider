@@ -17,7 +17,7 @@
     "titleXPath": "",
     "categoryReg": "",
     "categoryXPath": "",
-    "defaultCategory": "体育",
+    "defaultCategory": "sports",
     "urlReg": "http://sports.qq.com/a/\\d{8}/\\d+\\.htm",
     "charset": "",
     "publishTimeXPath": "",
