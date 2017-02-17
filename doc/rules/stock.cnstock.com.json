@@ -1,0 +1,52 @@
+{
+    "siteName": "中国证券网",
+    "domain": "stock.cnstock.com",
+    "startURL": [
+        "http://stock.cnstock.com"
+    ],
+    "id": "",
+    "thread": "2",
+    "retry": "2",
+    "sleep": "800",
+    "maxPageGather": "10",
+    "priority": "0",
+    "timeout": "5000",
+    "contentReg": "",
+    "contentXPath": "//div[@id='qmt_content_div']/p",
+    "titleReg": "",
+    "titleXPath": "//h1/text()",
+    "categoryReg": "",
+    "categoryXPath": "",
+    "defaultCategory": "stock",
+    "urlReg": "http://stock.cnstock.com/stock/smk_\\w+/\\d{6}/\\d+\\.htm",
+    "charset": "",
+    "publishTimeXPath": "//span[@class='timer']/text()",
+    "publishTimeReg": "",
+    "publishTimeFormat": "yyyy-MM-dd hh:mm:ss",
+    "imgReg": "",
+    "imgXPath": "//div[@id='qmt_content_div']/p/img/@src",
+    "lang": "",
+    "country": "",
+    "callbackURL": [],
+    "userAgent": "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30",
+    "proxyHost": "",
+    "proxyPort": "0",
+    "proxyUsername": "",
+    "proxyPassword": "",
+    "doNLP": true,
+    "needContent": true,
+    "saveCapture": true,
+    "gatherFirstPage": false,
+    "needTitle": false,
+    "needPublishTime": false,
+    "autoDetectPublishDate": false,
+    "dynamicFields": [
+          {
+            "regex": "",
+            "xpath": "//div[@id='qmt_content_div']/p/img/@src",
+            "name": "img",
+            "need": false
+        }
+    ],
+    "staticFields": []
+}
