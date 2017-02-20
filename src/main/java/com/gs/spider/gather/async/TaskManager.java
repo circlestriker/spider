@@ -232,7 +232,7 @@ public class TaskManager {
      * 根据任务名称查找正在运行的任务
      *
      * @param name 任务名称
-     * @return 十分存在
+     * @return 是否存在
      */
     public boolean findRunningTaskByName(String name) {
         return taskMap.entrySet().stream()
