@@ -1,0 +1,52 @@
+{
+    "siteName": "凤凰科技",
+    "domain": "tech.ifeng.com",
+    "startURL": [
+        "http://tech.ifeng.com"
+    ],
+    "id": "",
+    "thread": "2",
+    "retry": "2",
+    "sleep": "800",
+    "maxPageGather": "10",
+    "priority": "0",
+    "timeout": "5000",
+    "contentReg": "",
+    "contentXPath": "//div[@id='main_content']/p",
+    "titleReg": "",
+    "titleXPath": "//h1[@id='artical_topic']/text()",
+    "categoryReg": "",
+    "categoryXPath": "",
+    "defaultCategory": "tech",
+    "urlReg": "http://tech.ifeng.com/a/\\d+/\\d+_\\d{1}\\.shtml",
+    "charset": "",
+    "publishTimeXPath": "",
+    "publishTimeReg": "<span itemprop=\"datePublished\" class=\"ss01\">(.*?)</span>",
+    "publishTimeFormat": "yyyy年MM月dd日 hh:mm",
+    "imgReg": "",
+    "imgXPath": "//div[@id='main_content']/p/img/@src",
+    "lang": "",
+    "country": "",
+    "callbackURL": [],
+    "userAgent": "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30",
+    "proxyHost": "",
+    "proxyPort": "0",
+    "proxyUsername": "",
+    "proxyPassword": "",
+    "doNLP": true,
+    "needContent": true,
+    "saveCapture": true,
+    "gatherFirstPage": false,
+    "needTitle": false,
+    "needPublishTime": false,
+    "autoDetectPublishDate": false,
+    "dynamicFields": [
+        {
+            "regex": "",
+            "xpath": "//div[@id='main_content']/p[@class='detailPic']/img/@src",
+            "name": "img",
+            "need": false
+        }
+    ],
+    "staticFields": []
+}
