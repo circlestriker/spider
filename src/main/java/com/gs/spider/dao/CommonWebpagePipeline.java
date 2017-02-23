@@ -125,7 +125,7 @@ public class CommonWebpagePipeline extends IDAO<Webpage> implements DuplicateRem
         SearchResponse response = searchRequestBuilder.execute().actionGet();
         if (response.getHits().totalHits() == 0) {
             try {
-                LOG.debug("处理type:"+getTYPE_NAME());
+                LOG.debug("处理type:"+getTYPE_NAME());//todo 是否可以用 spiderInfo.getDefaultCategory()
                 if(getTYPE_NAME() != null && getTYPE_NAME().length() > 0) {
                     esClient.checkWebpageType(getTYPE_NAME());
                 }
