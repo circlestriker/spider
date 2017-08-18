@@ -12,6 +12,7 @@
 <head>
     <title>爬虫模板列表</title>
     <%@include file="../../commons/header.jsp" %>
+    <%@include file="../../commons/allScript.jsp" %>
     <script type="text/javascript">
         $(function () {
             var validate = $("#spiderInfoForm").validate({
@@ -34,6 +35,18 @@
             });
 
         });
+        function checkAll() {
+            $('input:checkbox').each(function () {
+                $(this).attr('checked', true);
+            });
+        }
+        function startAll() {
+            var idList = [];
+            $("input:checkbox:checked").each(function () {
+                idList.push($(this).attr('data-infoid'));
+            });
+            rpcAndShowData('${pageContext.request.contextPath}/commons/spider/startAll', {spiderInfoIdList: idList.join(',')});
+        }
     </script>
 </head>
 <body>
@@ -53,6 +66,10 @@
     </form>
 </div>
 <div class="container">
+    <div class="row">
+        <button type="button" onclick="startAll()">启动选中</button>
+        <button type="button" onclick="checkAll()">全选</button>
+    </div>
     <table class="table table-hover">
         <thead class="thead-inverse">
         <tr>
@@ -62,12 +79,15 @@
             <%--<th>查看数据</th>--%>
             <th>编辑</th>
             <th>删除</th>
+            <th>定时任务</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${spiderInfoList}" var="info" varStatus="index">
             <tr>
-                <th scope="row">${index.count}</th>
+                <th><label>
+                    <input type="checkbox" data-infoid="${info.id}">${index.count}
+                </label></th>
                 <td>${info.domain}</td>
                 <td>${info.siteName}</td>
                     <%--<td></td>--%>
@@ -80,6 +100,10 @@
                             class="btn btn-danger">
                         删除
                     </button>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/panel/commons/createQuartz?spiderInfoId=${info.id}"
+                       class="btn btn-secondary">创建定时任务</a>
                 </td>
             </tr>
         </c:forEach>

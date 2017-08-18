@@ -154,6 +154,10 @@ public class SpiderInfo {
      */
     private boolean saveCapture = true;
     /**
+     * 是否是ajax网站,如果是则使用casperjs下载器
+     */
+    private boolean ajaxSite = false;
+    /**
      * 自动探测发布时间
      */
     
@@ -531,7 +535,16 @@ public class SpiderInfo {
 		this.typeName = typeName;
 	}*/
 
-	@Override
+    public boolean isAjaxSite() {
+        return ajaxSite;
+    }
+
+    public SpiderInfo setAjaxSite(boolean ajaxSite) {
+        this.ajaxSite = ajaxSite;
+        return this;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 

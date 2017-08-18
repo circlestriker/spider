@@ -8,6 +8,7 @@ import com.gs.spider.service.AsyncGatherService;
 import com.gs.spider.service.commons.spider.CommonsSpiderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Map;
 
 /**
@@ -138,5 +142,51 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
     @ResponseBody
     public ResultBundle<String> addIgnoredUrl(String postfix) {
         return spiderService.addIgnoredUrl(postfix);
+    }
+
+    /**
+     * 根据爬虫模板ID批量启动任务
+     *
+     * @param spiderInfoIdList 爬虫模板ID列表
+     * @return 任务id列表
+     */
+    @RequestMapping(value = "startAll", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public ResultListBundle<String> startAll(String spiderInfoIdList) {
+        return spiderService.startAll(Lists.newArrayList(spiderInfoIdList.split(",")));
+    }
+
+    @RequestMapping(value = "createQuartzJob", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public ResultBundle<String> createQuartzJob(String spiderInfoId, int hoursInterval) {
+        return spiderService.createQuartzJob(spiderInfoId, hoursInterval);
+    }
+
+    @RequestMapping(value = "removeQuartzJob", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public ResultBundle<String> removeQuartzJob(String spiderInfoId) {
+        return spiderService.removeQuartzJob(spiderInfoId);
+    }
+
+    @RequestMapping(value = "checkQuartzJob", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public String checkQuartzJob(String spiderInfoId) {
+        return spiderService.checkQuartzJob(spiderInfoId).getResult();
+    }
+
+    @RequestMapping(value = "exportQuartz", method = RequestMethod.GET, produces = "application/json")
+    public void exportQuartz(HttpServletResponse response) throws IOException {
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("multipart/form-data");
+        response.setHeader("Content-Disposition", "attachment;fileName=commons-spider.quartz");
+        OutputStream outputStream = response.getOutputStream();
+        outputStream.write(spiderService.exportQuartz().getBytes());
+        outputStream.close();
+    }
+
+    @RequestMapping(value = "importQuartz", method = RequestMethod.POST, produces = "application/json")
+    @ResponseBody
+    public void importQuartz(String json) {
+        spiderService.importQuartz(json);
     }
 }

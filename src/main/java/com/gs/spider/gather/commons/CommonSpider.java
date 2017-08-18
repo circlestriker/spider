@@ -217,6 +217,7 @@ public class CommonSpider extends AsyncGather {
             content = content.replaceAll("<script([\\s\\S]*?)</script>", "");
             content = content.replaceAll("<style([\\s\\S]*?)</style>", "");
             content = content.replace("</p>", "***");
+            content = content.replace("<BR>", "***");
             content = content.replaceAll("<([\\s\\S]*?)>", "");
 
             content = content.replace("***", "<br/>");
@@ -271,7 +272,7 @@ public class CommonSpider extends AsyncGather {
             }
             if (StringUtils.isNotBlank(category)) {
                 page.putField("category", category);
-            }else {
+            } else {
                 page.putField("category", info.getDefaultCategory());
             }
 
@@ -350,6 +351,7 @@ public class CommonSpider extends AsyncGather {
             task.setDescription("处理网页出错，%s", e.toString());
         }
     };
+    private CasperjsDownloader casperjsDownloader;
     private List<Pipeline> pipelineList;
     private CommonWebpagePipeline commonWebpagePipeline;
     private ContentLengthLimitHttpClientDownloader contentLengthLimitHttpClientDownloader;
@@ -488,6 +490,11 @@ public class CommonSpider extends AsyncGather {
         MySpider spider = (MySpider) makeSpider(info, task)
                 .addPipeline(resultItemsCollectorPipeline)
                 .setScheduler(queueScheduler);
+        if (info.isAjaxSite() && StringUtils.isNotBlank(staticValue.getAjaxDownloader())) {
+            spider.setDownloader(casperjsDownloader);
+        } else {
+            spider.setDownloader(contentLengthLimitHttpClientDownloader);
+        }
         spider.startUrls(info.getStartURL());
         //慎用爬虫监控,可能导致内存泄露
 //        spiderMonitor.register(spider);
@@ -648,10 +655,15 @@ public class CommonSpider extends AsyncGather {
      * @return
      */
     private MySpider makeSpider(SpiderInfo info, Task task) {
-        return ((MySpider) new MySpider(new MyPageProcessor(info, task), info)
+        MySpider spider = ((MySpider) new MySpider(new MyPageProcessor(info, task), info)
                 .thread(info.getThread())
-                .setDownloader(contentLengthLimitHttpClientDownloader)
                 .setUUID(task.getTaskId()));
+        if (info.isAjaxSite() && StringUtils.isNotBlank(staticValue.getAjaxDownloader())) {
+            spider.setDownloader(casperjsDownloader);
+        } else {
+            spider.setDownloader(contentLengthLimitHttpClientDownloader);
+        }
+        return spider;
     }
 
     public NLPExtractor getKeywordsExtractor() {
@@ -724,6 +736,15 @@ public class CommonSpider extends AsyncGather {
         return this;
     }
 
+    public CasperjsDownloader getCasperjsDownloader() {
+        return casperjsDownloader;
+    }
+
+    public CommonSpider setCasperjsDownloader(CasperjsDownloader casperjsDownloader) {
+        this.casperjsDownloader = casperjsDownloader;
+        return this;
+    }
+
     /**
      * 在原有的webmagic基础上添加了一些其他功能
      */
@@ -747,7 +768,7 @@ public class CommonSpider extends AsyncGather {
                             (reachMax = (SPIDER_INFO.getMaxPageGather() > 0 && task.getCount() >= SPIDER_INFO.getMaxPageGather()))
                                     ||
                                     //如果抓取页面超过最大抓取数量ratio倍的时候,仍未达到最大抓取数量,爬虫也退出
-                                    (exceedRatio = (this.getPageCount() > SPIDER_INFO.getMaxPageGather() * staticValue.getCommonsWebpageCrawlRatio()))
+                                    (exceedRatio = (this.getPageCount() > SPIDER_INFO.getMaxPageGather() * staticValue.getCommonsWebpageCrawlRatio() && SPIDER_INFO.getMaxPageGather() > 0))
                     )
                             && this.getStatus() == Status.Running) {
                 LOG.info("爬虫ID({})已处理{}个页面,有效页面{}个,最大抓取页数{},reachMax={},exceedRatio={},退出.", this.getUUID(), this.getPageCount(), task.getCount(), SPIDER_INFO.getMaxPageGather(), reachMax, exceedRatio);

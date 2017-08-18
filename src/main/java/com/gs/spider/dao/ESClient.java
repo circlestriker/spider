@@ -67,12 +67,13 @@ public class ESClient {
             return null;
         }
         if (client != null) return client;
+        LOG.info("正在初始化ElasticSearch客户端," + staticValue.getEsHost());
+        
+        Settings settings = Settings.builder()
+        		.put("cluster.name", staticValue.getEsClusterName()).build();
         try {
-            LOG.info("正在初始化ElasticSearch客户端," + staticValue.getEsHost());
-            Settings settings = Settings.builder()
-                    .put("cluster.name", staticValue.getEsClusterName()).build();
-            client = new PreBuiltTransportClient(settings)
-                    .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(staticValue.getEsHost()), 9300));
+        	client = new PreBuiltTransportClient(settings)
+        			.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(staticValue.getEsHost()), staticValue.getEsPort()));
             final ClusterHealthResponse healthResponse = client.admin().cluster().prepareHealth()
                     .setTimeout(TimeValue.timeValueMinutes(1)).execute().actionGet();
             if (healthResponse.isTimedOut()) {
